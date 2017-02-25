@@ -13,11 +13,19 @@ type secretAgent struct {
 }
 
 func (p person) speak() {
-    fmt.Println(p.fname, p.lname, `says, "Good morning, Trevor Knott`)
+  fmt.Println(p.fname, p.lname, `says, "Good morning, Trevor Knott`)
 }
 
 func (sa secretAgent) speak() {
-    fmt.Println(sa.fname, sa.lname, `says, "Kick right to your face.. SNAP`)
+  fmt.Println(sa.fname, sa.lname, `says, "Kick right to your face.. SNAP`)
+}
+
+type human interface {
+  speak() // to be human in this case you must speak (interface)   IMPLICITLYWILL BE USED IF SPEAK() USED  
+}
+
+func saySomething(h human) {
+ h.speak()
 }
 
 func main() {
@@ -43,9 +51,13 @@ func main() {
       true,
   }
 
-  p1.speak()
-  sa1.speak()
-  sa1.person.speak()
-  fmt.Println(p1)
+saySomething(p1) // because it is a human
+saySomething(sa1)
+saySomething(sa1.person)
+
+//   p1.speak()
+//   sa1.speak()
+//   sa1.person.speak()
+//   fmt.Println(p1)
 
 }
