@@ -12,12 +12,12 @@ type secretAgent struct {
   lic2Kill bool
 }
 
-// func (p person) speak() {
-//     fmt.Println(p.fname, p.lname, `says, "Good morning, Trevor Knott`)
-// }
+func (p person) speak() {
+    fmt.Println(p.fname, p.lname, `says, "Good morning, Trevor Knott`)
+}
 
 func (sa secretAgent) speak() {
-    fmt.Println(sa.fname, sa.lname, `says, "Good morning, Trevor Knott`)
+    fmt.Println(sa.fname, sa.lname, `says, "Kick right to your face.. SNAP`)
 }
 
 func main() {
@@ -35,10 +35,6 @@ func main() {
       "Franklernisher",
   }
 
-  fmt.Println(p1)
-
-//   p1.speak()
-
   sa1 := secretAgent{
       person{
           "Juade Claude",
@@ -46,5 +42,10 @@ func main() {
       },
       true,
   }
+
+  p1.speak()
   sa1.speak()
+  sa1.person.speak()
+  fmt.Println(p1)
+
 }
